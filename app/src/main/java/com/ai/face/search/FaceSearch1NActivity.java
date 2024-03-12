@@ -34,7 +34,7 @@ import com.yifeng.face.databinding.ActivityFaceSearchBinding;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
-import java.io.File;
+import java.io.File; 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
