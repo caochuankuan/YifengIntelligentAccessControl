@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="ctype">
+
+        <item>请选择维护者</item>
+        <item>张三</item>
+        <item>李四</item>
+        <item>王五</item>
+        <item>李六</item>
+        <item>张启</item>
+        <item>徐八</item>
+        <item>胡九</item>
+
+    </string-array>
+</resources>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/screen1"
+    tools:context="com.ai.face.ui.MainActivity">
+
+    <TextView
+        android:id="@+id/emptytext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:textSize="10sp"/>
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/emptytext"
+        android:gravity="center"
+        android:text="逸风智能门禁平台"
+        android:textColor="#f9f000"
+        android:layout_marginBottom="10000dp"
+        android:textSize="39sp"/>
+
+    <TextView
+        android:id="@+id/user"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_above="@id/center"
+        android:layout_marginBottom="100sp"
+        android:gravity="center"
+        android:text=""
+        android:textColor="#f9f000"
+        android:textSize="25sp"/>
+
+    <TextView
+        android:id="@+id/staff"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="designed by：21计应1班 曹传宽"
+        android:textColor="#f9f000"
+        android:gravity="center"
+        android:layout_marginBottom="6dp"/>
+
+    <TextView
+        android:id="@+id/privacy"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="隐私政策"
+        android:textColor="@color/colorHint"
+        android:gravity="center"
+        android:layout_marginBottom="35dp"/>
+
+    <soup.neumorphism.NeumorphButton
+        android:id="@+id/center"
+        android:layout_width="250dp"
+        android:layout_height="65dp"
+        android:gravity="center"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="60dp"
+        android:layout_centerHorizontal="true"
+        android:text="开始使用"
+        android:textSize="20sp"
+        style="@style/Button"
+        app:neumorph_backgroundColor="@color/colorBackground"
+        app:neumorph_shadowColorLight="#6F8381"
+        app:neumorph_shadowColorDark="@color/colorText"
+        android:background="#f9f000"/>
+
+</RelativeLayout>

@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:orientation="vertical"
+    android:background="@color/colorBorder"
+    tools:context="com.ai.face.search.SearchNaviActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="5">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <soup.neumorphism.NeumorphButton
+                android:id="@+id/face_search_1n"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:gravity="center"
+                android:text="开始识别"
+                android:textSize="35sp"
+                android:textColor="@color/colorText"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif"
+                app:neumorph_shapeType="flat"
+                android:layout_marginTop="50dp"
+                app:neumorph_shadowColorLight="#AEBCBA"
+                app:neumorph_shadowColorDark="#CDC9C9"
+                app:neumorph_backgroundColor="#FFFFFF"/>
+
+            <soup.neumorphism.NeumorphButton
+                android:id="@+id/face_search_mn"
+                style="@style/list_memu"
+                android:text="多人识别"
+                android:textColor="@color/colorText"
+                app:neumorph_shapeType="flat"
+                app:neumorph_shadowColorLight="#AEBCBA"
+                app:neumorph_backgroundColor="#FFFFFF"/>
+
+            <soup.neumorphism.NeumorphButton
+                android:id="@+id/addFaceImage"
+                android:layout_width="match_parent"
+                android:layout_height="65dp"
+                android:gravity="center"
+                android:text="录入人脸信息（切换到前置Camera）"
+                android:textSize="20sp"
+                android:textColor="@color/colorText"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif"
+                app:neumorph_shapeType="flat"
+                app:neumorph_shadowColorLight="#AEBCBA"
+                app:neumorph_backgroundColor="#FFFFFF"/>
+
+<!--            <soup.neumorphism.NeumorphButton-->
+<!--                android:id="@+id/copyFaceImages"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="65dp"-->
+<!--                android:gravity="center"-->
+<!--                android:text="App内置200张AI头像导入"-->
+<!--                android:textSize="20sp"-->
+<!--                android:textColor="@color/colorText"-->
+<!--                android:textStyle="bold"-->
+<!--                android:fontFamily="sans-serif"-->
+<!--                app:neumorph_shapeType="flat"-->
+<!--                app:neumorph_shadowColorLight="#AEBCBA"-->
+<!--                app:neumorph_backgroundColor="#FFFFFF"/>-->
+
+            <soup.neumorphism.NeumorphButton
+                android:id="@+id/editFaceImage"
+                android:layout_width="match_parent"
+                android:layout_height="65dp"
+                android:gravity="center"
+                android:text="人脸库浏览和编辑人脸"
+                android:textSize="20sp"
+                android:textColor="@color/colorText"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif"
+                app:neumorph_shapeType="flat"
+                app:neumorph_shadowColorLight="#AEBCBA"
+                app:neumorph_backgroundColor="#FFFFFF"/>
+
+            <soup.neumorphism.NeumorphButton
+                android:id="@+id/change_camera"
+                android:layout_width="match_parent"
+                android:layout_height="65dp"
+                android:gravity="center"
+                android:text="点击切换摄像头"
+                android:textSize="20sp"
+                android:textColor="@color/colorText"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif"
+                app:neumorph_shapeType="flat"
+                app:neumorph_shadowColorLight="#AEBCBA"
+                app:neumorph_backgroundColor="#FFFFFF"/>
+
+            <soup.neumorphism.NeumorphButton
+                android:id="@+id/show_img"
+                android:layout_width="match_parent"
+                android:layout_height="65dp"
+                android:gravity="center"
+                android:text="查看识别记录"
+                android:textSize="20sp"
+                android:textColor="@color/colorText"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif"
+                app:neumorph_shapeType="flat"
+                app:neumorph_shadowColorLight="#AEBCBA"
+                app:neumorph_backgroundColor="#FFFFFF"/>
+
+            <soup.neumorphism.NeumorphButton
+                android:id="@+id/mima"
+                android:layout_width="match_parent"
+                android:layout_height="65dp"
+                android:gravity="center"
+                android:text="修改小区密码"
+                android:textSize="20sp"
+                android:textColor="@color/colorText"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif"
+                app:neumorph_shapeType="flat"
+                app:neumorph_shadowColorLight="#AEBCBA"
+                app:neumorph_backgroundColor="#FFFFFF"/>
+
+            <soup.neumorphism.NeumorphButton
+                android:id="@+id/aboutus"
+                android:layout_width="match_parent"
+                android:layout_height="65dp"
+                android:gravity="center"
+                android:text="关于我们"
+                android:textSize="20sp"
+                android:textColor="@color/colorText"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif"
+                app:neumorph_shapeType="flat"
+                app:neumorph_shadowColorLight="#AEBCBA"
+                app:neumorph_backgroundColor="#FFFFFF"/>
+
+            <soup.neumorphism.NeumorphButton
+                android:id="@+id/clear_msg"
+                android:layout_width="match_parent"
+                android:layout_height="65dp"
+                android:gravity="center"
+                android:text="退出登录"
+                android:textSize="20sp"
+                android:textColor="@color/colorText"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif"
+                app:neumorph_shapeType="flat"
+                app:neumorph_shadowColorLight="#AEBCBA"
+                app:neumorph_backgroundColor="#FFFFFF"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <RelativeLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+
+        <ImageView
+            android:id="@+id/pic"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="190dp"
+            android:adjustViewBounds="true"
+            android:background="@drawable/bg"/>
+
+        <TextView
+            android:id="@+id/zhuti"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/colorAccent"
+            android:textSize="15sp"
+            android:padding="4dp"
+            android:layout_marginEnd="16dp"
+            android:layout_alignBottom="@id/pic"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="30dp"
+            android:text="-  切换主题  -" />
+
+        <TextView
+            android:id="@+id/tips"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/colorAccent"
+            android:textSize="15sp"
+            android:padding="4dp"
+            android:layout_marginEnd="16dp"
+            android:layout_alignBottom="@id/pic"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="2dp"
+            android:text="-  小区信息  -" />
+
+    </RelativeLayout>
+
+
+
+</LinearLayout>

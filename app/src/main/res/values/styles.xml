@@ -1,0 +1,61 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorControlNormal">@android:color/white</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+
+    <style name="DialogStyle" parent="@android:style/Theme.Dialog">
+        <!-- 边框 -->
+        <item name="android:windowFrame">@null</item>
+        <!-- 背景透明 -->
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <!-- 无标题 -->
+        <item name="android:windowNoTitle">true</item>
+        <!-- 是否浮现在activity之上 -->
+        <item name="android:windowIsFloating">true</item>
+        <!-- 半透明 -->
+        <item name="android:windowIsTranslucent">false</item>
+        <!-- 背景模糊 -->
+        <item name="android:windowContentOverlay">@null</item>
+        <!-- 允许对话框的背景变暗 -->
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
+
+
+    <!--colorControlNormal 为没有获取焦点时候下划线的颜色-->
+    <!--colorControlActivated 为获取焦点时候光标与下划线的颜色-->
+    <style name="MyEditText" parent="Theme.AppCompat.Light">
+        <item name="colorControlNormal">@color/yellow</item>
+        <item name="colorControlActivated">@color/colorAccent</item>
+    </style>
+
+    <style name="GridButton">
+        <item name="android:layout_width">70dp</item>
+        <item name="android:layout_height">80dp</item>
+        <item name="android:textSize">50sp</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:layout_margin">30dp</item>
+        <item name="android:background">@drawable/rounded_button</item> <!-- 引用圆角背景 -->
+    </style>
+
+    <style name="Button">
+        <item name="android:background">@drawable/rounded_button</item> <!-- 引用圆角背景 -->
+    </style>
+
+    <style name="list_memu">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">65dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">#308d46</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">sans-serif</item>
+    </style>
+
+</resources>

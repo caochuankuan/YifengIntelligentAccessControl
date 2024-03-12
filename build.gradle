@@ -1,0 +1,27 @@
+
+plugins {
+    id 'com.android.application' version '8.2.0' apply false
+    id 'com.android.library' version '8.2.0' apply false
+    id 'org.jetbrains.kotlin.android' version '1.7.20' apply false
+    id("com.google.devtools.ksp") version "1.8.10-1.0.9" apply false
+}
+
+
+
+////如果和你的项目中Kotlin 依赖不一致。 强制统一项目中的Kotlin 版本依赖
+//ConfigurationContainer container = project.configurations
+//container.all { Configuration conf ->
+//    ResolutionStrategy rs = conf.resolutionStrategy
+//    rs.eachDependency { details ->
+//        def requested = details.requested
+//        if (requested.group == "org.jetbrains.kotlin") {
+//            //统一内部 kotlin 库的版本
+//            details.useVersion("$kotlin_version")
+//        }
+//    }
+//}
+
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
