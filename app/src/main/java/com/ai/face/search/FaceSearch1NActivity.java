@@ -217,7 +217,7 @@ public class FaceSearch1NActivity extends AppCompatActivity {
                                 String server = "124.71.2.21";
                                 int port = 21;
                                 String username = "yifeng";
-                                String password = "cck134414";
+                                String password = "123456";
 
                                 try {
                                     ftpClient.connect(server, port);
