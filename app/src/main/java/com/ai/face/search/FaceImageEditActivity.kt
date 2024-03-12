@@ -188,7 +188,7 @@ class FaceImageEditActivity : AppCompatActivity() {
         val server = "124.71.2.21"
         val port = 21
         val username = "yifeng"
-        val password = "cck134414"
+        val password = "123456"
 
         try {
             ftpClient.connect(server, port)
