@@ -132,7 +132,7 @@ public class MainActivity extends AppCompatActivity {
             }
 
             OkHttpClient client = new OkHttpClient();
-            String url = "http://www.chuankuan.vip:213/app.html";
+            String url = "http://chuankuan.com.cn/app.html";
 
             Request request = new Request.Builder()
                     .url(url)
