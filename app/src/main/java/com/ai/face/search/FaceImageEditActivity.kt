@@ -185,7 +185,7 @@ class FaceImageEditActivity : AppCompatActivity() {
     // 下载
     fun downloadFromFTP() {
         val ftpClient = FTPClient()
-        val server = "124.71.2.21"
+        val server = "47.116.51.2"
         val port = 21
         val username = "yifeng"
         val password = "123456"
