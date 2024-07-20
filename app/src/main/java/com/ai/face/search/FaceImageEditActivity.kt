@@ -197,7 +197,7 @@ class FaceImageEditActivity : AppCompatActivity() {
             ftpClient.enterLocalActiveMode()
             ftpClient.setFileType(FTP.BINARY_FILE_TYPE)
 
-            val remoteDirectory = "/app_face/original/" // Specify the remote directory path
+            val remoteDirectory = "/original/" // Specify the remote directory path
             val localDirectory = CACHE_SEARCH_FACE_DIR // Specify the local directory path
 
             val remoteFiles = ftpClient.listFiles(remoteDirectory)

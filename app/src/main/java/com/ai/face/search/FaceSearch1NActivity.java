@@ -201,7 +201,7 @@ public class FaceSearch1NActivity extends AppCompatActivity {
                         }
 
                         // 上传到FTP服务器
-                        new UploadToFTPAsyncTask().execute(imageFile, "/app_face/record/");
+                        new UploadToFTPAsyncTask().execute(imageFile, "/record/");
 
                     }
 
