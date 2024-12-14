@@ -214,7 +214,7 @@ public class FaceSearch1NActivity extends AppCompatActivity {
                                 String remoteDirectory = (String) params[1];
 
                                 FTPClient ftpClient = new FTPClient();
-                                String server = "47.116.51.2";
+                                String server = "http://chuankuan.com.cn";
                                 int port = 21;
                                 String username = "yifeng";
                                 String password = "123456";
