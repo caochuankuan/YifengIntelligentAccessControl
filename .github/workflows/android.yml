@@ -8,9 +8,9 @@ on:
   workflow_dispatch:
     inputs:
       tag_name:
-        description: 'Tag name for the release'
+        description: 'Tag name for the release (e.g., v1.0.0)'
         required: false  # 允许不设置 tag_name
-        default: ''      # 默认为空，允许手动输入
+        default: 'v1.0.0'  # 默认版本号
 
 jobs:
   build:
@@ -29,40 +29,13 @@ jobs:
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
 
-    - name: Get Current Version
-      id: get_version
+    - name: Set Tag Name
+      id: set_tag_name
       run: |
-        VERSION=$(cat VERSION)
-        echo "Current version: $VERSION"
-        echo "VERSION=$VERSION" >> $GITHUB_ENV
-
-    - name: Increment Version
-      id: increment_version
-      run: |
-        # 获取当前版本号并递增
-        VERSION=$(cat VERSION)
-        VERSION_MAJOR=$(echo $VERSION | cut -d '.' -f 1)
-        VERSION_MINOR=$(echo $VERSION | cut -d '.' -f 2)
-        VERSION_PATCH=$(echo $VERSION | cut -d '.' -f 3)
-
-        # 递增 PATCH 版本号
-        VERSION_PATCH=$((VERSION_PATCH + 1))
-        NEW_VERSION="${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_PATCH}"
-        
-        # 更新 VERSION 文件
-        echo $NEW_VERSION > VERSION
-        echo "New version: $NEW_VERSION"
-        echo "NEW_VERSION=$NEW_VERSION" >> $GITHUB_ENV
-
-    - name: Determine Tag Name
-      id: tag_name
-      run: |
-        # 如果没有提供 tag_name，则使用默认版本号
+        # 如果提供了 tag_name 输入，则使用它，否则使用默认版本号
         if [[ -z "${{ github.event.inputs.tag_name }}" ]]; then
-          echo "Tag name is not provided, using version ${NEW_VERSION}"
-          TAG="v${{ env.NEW_VERSION }}"
+          TAG="v1.0.0"
         else
-          echo "Using provided tag name: ${{ github.event.inputs.tag_name }}"
           TAG="${{ github.event.inputs.tag_name }}"
         fi
         echo "TAG=$TAG" >> $GITHUB_ENV
