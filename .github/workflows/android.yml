@@ -40,23 +40,10 @@ jobs:
         fi
         echo "TAG=$TAG" >> $GITHUB_ENV
 
-    - name: Check if tag exists using GitHub API
-      id: check_tag
-      run: |
-        TAG_EXISTS=$(curl -s "https://api.github.com/repos/${{ github.repository }}/tags" | jq -r '.[].name' | grep -w "${{ env.TAG }}" || true)
-        if [ -z "$TAG_EXISTS" ]; then
-          echo "Tag ${{ env.TAG }} does not exist. Proceeding with release creation."
-          echo "TAG_EXISTS=false" >> $GITHUB_ENV
-        else
-          echo "Tag ${{ env.TAG }} already exists. Skipping release creation."
-          echo "TAG_EXISTS=true" >> $GITHUB_ENV
-
     - name: Build with Gradle
       run: ./gradlew build
 
     - name: Create Release
-      if: env.TAG_EXISTS == 'false'
-      id: create_release
       uses: actions/create-release@v1
       with:
         tag_name: ${{ env.TAG }}  # 使用自定义的标签名
@@ -68,7 +55,6 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Upload APK to Release
-      if: env.TAG_EXISTS == 'false'
       uses: softprops/action-gh-release@v1
       with:
         files: |
