@@ -5,10 +5,15 @@ on:
     branches: [ "master" ]
   pull_request:
     branches: [ "master" ]
+  workflow_dispatch:
+    inputs:
+      tag_name:
+        description: 'Tag name for the release'
+        required: false  # 允许不设置 tag_name
+        default: ''      # 默认为空，允许手动输入
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
@@ -24,6 +29,44 @@ jobs:
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
 
+    - name: Get Current Version
+      id: get_version
+      run: |
+        VERSION=$(cat VERSION)
+        echo "Current version: $VERSION"
+        echo "VERSION=$VERSION" >> $GITHUB_ENV
+
+    - name: Increment Version
+      id: increment_version
+      run: |
+        # 获取当前版本号并递增
+        VERSION=$(cat VERSION)
+        VERSION_MAJOR=$(echo $VERSION | cut -d '.' -f 1)
+        VERSION_MINOR=$(echo $VERSION | cut -d '.' -f 2)
+        VERSION_PATCH=$(echo $VERSION | cut -d '.' -f 3)
+
+        # 递增 PATCH 版本号
+        VERSION_PATCH=$((VERSION_PATCH + 1))
+        NEW_VERSION="${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_PATCH}"
+        
+        # 更新 VERSION 文件
+        echo $NEW_VERSION > VERSION
+        echo "New version: $NEW_VERSION"
+        echo "NEW_VERSION=$NEW_VERSION" >> $GITHUB_ENV
+
+    - name: Determine Tag Name
+      id: tag_name
+      run: |
+        # 如果没有提供 tag_name，则使用默认版本号
+        if [[ -z "${{ github.event.inputs.tag_name }}" ]]; then
+          echo "Tag name is not provided, using version ${NEW_VERSION}"
+          TAG="v${{ env.NEW_VERSION }}"
+        else
+          echo "Using provided tag name: ${{ github.event.inputs.tag_name }}"
+          TAG="${{ github.event.inputs.tag_name }}"
+        fi
+        echo "TAG=$TAG" >> $GITHUB_ENV
+
     - name: Build with Gradle
       run: ./gradlew build
 
@@ -31,9 +74,9 @@ jobs:
       id: create_release
       uses: actions/create-release@v1
       with:
-        tag_name: ${{ github.sha }}
-        release_name: Release ${{ github.sha }}
-        body: Release for commit ${{ github.sha }}
+        tag_name: ${{ env.TAG }}  # 使用自定义的标签名
+        release_name: "Release ${{ env.TAG }}"
+        body: "Release for version ${{ env.TAG }}"
         draft: false
         prerelease: false
       env:
