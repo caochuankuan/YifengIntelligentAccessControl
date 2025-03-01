@@ -8,9 +8,9 @@ on:
   workflow_dispatch:
     inputs:
       tag_name:
-        description: 'Tag name for the release (e.g., v1.0.0)'
+        description: 'Tag name for the release'
         required: false  # 允许不设置 tag_name
-        default: 'v1.0.0'  # 默认版本号
+        default: ''
 
 jobs:
   build:
@@ -43,19 +43,13 @@ jobs:
     - name: Build with Gradle
       run: ./gradlew build
 
-    - name: Create Release
-      uses: actions/create-release@v1
-      with:
-        tag_name: ${{ env.TAG }}  # 使用自定义的标签名
-        release_name: "Release ${{ env.TAG }}"
-        body: "Release for version ${{ env.TAG }}"
-        draft: false
-        prerelease: false
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-    - name: Upload APK to Release
+    # 创建 GitHub Release
+    - name: Create GitHub Release
+      id: release
       uses: softprops/action-gh-release@v1
       with:
-        files: |
-          app/build/outputs/apk/debug/app-debug.apk
+        tag_name: ${{ github.event.inputs.tag_name || env.TAG_NAME }}
+        files: app/build/outputs/apk/debug/*.apk
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
